@@ -1,9 +1,9 @@
 package utils
 
 import (
+	"bible-users-api/app/appdata"
+	"bible-users-api/app/models"
 	"time"
-	"versequick-users-api/app/appdata"
-	"versequick-users-api/app/models"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt/v5"

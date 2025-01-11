@@ -1,12 +1,12 @@
 package app
 
 import (
+	"bible-users-api/app/appdata"
+	"bible-users-api/app/models"
+	"bible-users-api/app/routes"
 	"log"
 	"os"
 	"strconv"
-	"versequick-users-api/app/appdata"
-	"versequick-users-api/app/models"
-	"versequick-users-api/app/routes"
 
 	jwtware "github.com/gofiber/contrib/jwt"
 	"github.com/gofiber/fiber/v2"
@@ -23,7 +23,7 @@ type App struct {
 
 func NewApp() *App {
 	fiberApp := fiber.New(fiber.Config{
-		AppName: "VerseQuick Users API",
+		AppName: "Bible Users API",
 	})
 	return &App{
 		Fiber: fiberApp,

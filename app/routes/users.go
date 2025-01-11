@@ -1,14 +1,14 @@
 package routes
 
 import (
+	"bible-users-api/app/appdata"
+	"bible-users-api/app/models"
+	"bible-users-api/app/utils"
 	"errors"
 	"fmt"
 	"net/mail"
 	"strconv"
 	"time"
-	"versequick-users-api/app/appdata"
-	"versequick-users-api/app/models"
-	"versequick-users-api/app/utils"
 
 	"github.com/gofiber/fiber/v2"
 	"gorm.io/gorm"
@@ -94,7 +94,7 @@ func SendForgotPasswordEmail(c *fiber.Ctx) error {
 	appdata.DB.Where("expires_at < ?", now).Delete(&models.ForgotPassword{})
 	appdata.DB.Where("user_id = ?", user.ID).Delete(&models.ForgotPassword{})
 	appdata.DB.Create(&forgotPassword)
-	resetLink := fmt.Sprintf("https://versequick.com/changepassword/%s", randString)
+	resetLink := fmt.Sprintf("https://bible.berinaniesh.xyz/changepassword/%s", randString)
 	emailBody := fmt.Sprintf("Visit <a href=%s>%s</a> to change your password", resetLink, resetLink)
 	err := utils.SendEmail(email, "Reset your password", emailBody, true)
 	if err != nil {
@@ -182,7 +182,7 @@ func SendEmailVerificationEmail(c *fiber.Ctx) error {
 	appdata.DB.Where("expires_at < ?", now).Delete(&models.VerifyEmail{})
 	appdata.DB.Where("user_id = ?", user.ID).Delete(&models.VerifyEmail{})
 	appdata.DB.Create(&verifyEmail)
-	verifyLink := fmt.Sprintf("https://versequick.com/verifyemail/%s", token)
+	verifyLink := fmt.Sprintf("https://bible.berinaniesh.xyz/verifyemail/%s", token)
 	emailBody := fmt.Sprintf("Click the link below to verify your email.<br><br><a href=%s>%s</a>", verifyLink, verifyLink)
 	err := utils.SendEmail(user.Email, "Verify your email", emailBody, true)
 	if err != nil {

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"versequick-users-api/app"
+	"bible-users-api/app"
 )
 
 func main() {

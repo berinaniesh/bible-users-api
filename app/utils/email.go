@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"versequick-users-api/app/appdata"
+	"bible-users-api/app/appdata"
 
 	gomail "gopkg.in/mail.v2"
 )

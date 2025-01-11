@@ -1,12 +1,12 @@
 package routes
 
 import (
+	"bible-users-api/app/appdata"
+	"bible-users-api/app/models"
+	"bible-users-api/app/utils"
 	"errors"
 	"fmt"
 	"time"
-	"versequick-users-api/app/appdata"
-	"versequick-users-api/app/models"
-	"versequick-users-api/app/utils"
 
 	"github.com/gofiber/fiber/v2"
 	"gorm.io/gorm"
